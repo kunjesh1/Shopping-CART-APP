@@ -1,0 +1,33 @@
+{
+  "name": "shopping-cart-app",
+  "version": "1.0.0",
+  "description": "A basic MEAN stack shopping cart app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunjesh1/Shopping-CART-APP.git"
+  },
+  "keywords": [
+    "Shopping",
+    "cart",
+    "app",
+    "MEAN",
+    "stack"
+  ],
+  "author": "Kunjesh Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunjesh1/Shopping-CART-APP/issues"
+  },
+  "homepage": "https://github.com/kunjesh1/Shopping-CART-APP#readme",
+  "dependencies": {
+    "@angular/cli": "^8.1.2",
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.5"
+  }
+}
