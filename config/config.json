@@ -1,0 +1,12 @@
+{
+    "development":{
+        "PORT":3000,
+        "MONGODB_URI":"mongodb://localhost/ShoppingCartDB"
+    },
+
+    "production":{
+        "PORT":80,
+        "MONGODB_URI":"mongodb://localhost/ShoppingCartDB"
+    }
+
+}
