@@ -15,9 +15,10 @@ export class UserService{
         password:''
     };
 
-
+    
  postUser(user:User):Observable<User[]>{
-    return this.http.post<User[]>(environment.apiBaseUrl+'register',user);
+     console.log(user);
+    return this.http.post<User[]>("http://localhost:3000/api/register",user);
   }
 
 }
