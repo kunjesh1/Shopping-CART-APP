@@ -15,6 +15,11 @@ export class UserService{
         password:''
     };
 
+getStatus(data){
+
+  return this.http.post("http://localhost:3000/api/authenticate",data);
+}
+
     
  postUser(user:User):Observable<User[]>{
      console.log(user);
