@@ -1,5 +1,7 @@
 require('./config/config');
 require('./models/db');
+require('./config/passportConfig');
+
 
 const express=require('express');
 var app=express();
@@ -7,6 +9,7 @@ const bodyParser=require('body-parser');
 const cors=require('cors');
 const rtsIndex=require('./routes/index.router');
 const mongoose=require('mongoose');
+const passport=require('passport');
 
 
 
@@ -18,9 +21,11 @@ mongoose.connect(process.env.MONGODB_URI,
 
 
 //middleware
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(passport.initialize());
 app.use('/api',rtsIndex);
 
 // error handler
