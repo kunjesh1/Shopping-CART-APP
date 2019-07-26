@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './dropdown.directive';
+import {MatFormFieldModule, MatSelectModule, MatCardModule, MatInputModule, MatButtonModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -26,8 +28,14 @@ import { DropdownDirective } from './dropdown.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatButtonModule
+],
   providers: [UserService,
     AuthGuard,
     {
@@ -39,3 +47,17 @@ import { DropdownDirective } from './dropdown.directive';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+@NgModule({
+
+  exports:[ MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+  MatButtonModule]
+
+
+})
+
+export class MaterialDesign{}

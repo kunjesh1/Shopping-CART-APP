@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<!-- <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="email">email</label>
@@ -21,4 +21,35 @@
         </button>
         <a [routerLink]="['/register']"  class="btn btn-link">Register</a>
     </div>
+</form> -->
+
+
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+  </p>
+
+  <p *ngIf="serverErrorMessages" class="error">
+    {{ serverErrorMessages }}
+  </p>
+
+  <div class="button">
+    <button type="submit"  mat-button>Login</button>
+  </div>
+
+  <a [routerLink]="['/register']"  class="btn btn-link">Register</a>
+
 </form>
+</mat-card-content>
+</mat-card>
