@@ -19,7 +19,9 @@
       "dom"
     ],
     
-        "allowJs": true
+        "allowJs": true,
+        "experimentalDecorators": true
+      
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

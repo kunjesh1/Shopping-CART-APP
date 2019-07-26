@@ -1,26 +1,139 @@
-<table *ngIf="userDetails" class="table-fill">
-    <thead>
-        <tr>
-            <th colspan="2" class="text-center">User Profile</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>First Name</td>
-            <td>{{userDetails.fullName.split(' ')[0]}}</td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td>{{userDetails.fullName.split(' ')[1]}}</td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>{{userDetails.email}}</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="text-center">
-                <input type="button" (click)="onLogout()" value="Logout" />
-            </td>
-        </tr>
-    </tbody>
-  </table>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>User name</h1>
+        </div>
+        <div class="col-sm-2"> <a [routerLink]="['/main']" class="btn btn-link">Back to Home Page</a></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
+
+            <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                    alt="avatar">
+                <h6>Upload a different photo...</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div>
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                <li><a data-toggle="tab" href="#messages">Menu 1</a></li>
+                <li><a data-toggle="tab" href="#settings">Menu 2</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+
+                    <div class="pull-right">
+                        <button class="btn btn-danger" (click)="onEdit()" mat-button>Edit</button>
+                    </div>
+                    <br><br>
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Profile <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-left" *ngIf=[userDetails]>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>
+                                        <h5><strong>FullName</strong></h5>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div *ngIf="disabled;else elseBlock">
+                                        <h5>{{userDetails.fullName}}</h5>
+                                    </div>
+                                    <ng-template #elseBlock>
+                                        
+                                            <div class="form-group">
+                                                <input type="text"  class="form-control" placeholder="{{userDetails.fullName}}">
+                                            </div>
+                                            
+
+                                    </ng-template>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item text-left">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>
+                                        <h5><strong>Email</strong></h5>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div *ngIf="disabled;else elseBlock">
+                                        <h5>{{userDetails.email}}</h5>
+                                    </div>
+                                    <ng-template #elseBlock>
+                                            <div class="form-group">
+                                                    <input type="text"  class="form-control" placeholder="{{userDetails.email}}">
+                                                </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item text-left">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>
+                                        <h5><strong>Password</strong></h5>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div *ngIf="disabled;else elseBlock">
+                                                <h5>***********</h5>
+                                            </div>
+                                            <ng-template #elseBlock>
+                                                <h5><input type="text"></h5>
+                                            </ng-template>
+                                        </div>
+
+                                        <div class="col-md-7">
+                                            <div class="pull-right">
+                                                <button class="btn btn-danger" mat-button>Change Password</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item text-left">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>
+                                        <h5><strong>Mobile No</strong></h5>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div *ngIf="disabled else elseblock">
+                                    <h5>4394</h5>
+                                 </div>
+
+                                    <ng-template #elseBlock>
+                                        
+                                            <div class="form-group">
+                                                <input type="text"  class="form-control" placeholder="{{userDetails.mobile}}">
+                                            </div>
+                                            
+
+                                    </ng-template>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="col-xs-12" style=" display: flex;justify-content: center;">
+                        <br><br>
+                        <button class="btn btn-lg btn-success" type="submit" mat-button><i
+                                class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                        <button class="btn btn-lg" type="reset" mat-button><i class="glyphicon glyphicon-repeat"></i>
+                            Reset</button>
+                    </div>
+                </div>
+            </div>
