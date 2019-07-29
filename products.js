@@ -65,7 +65,8 @@
       "price" : 2,
       "title" : "Peach"
     },
-    "-KrvsrmX3I1-Bo6eFCdx" : {
+ 
+    {
       "category" : "seasonings",
       "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cinnamon-other.jpg",
       "price" : 0.5,
@@ -77,7 +78,8 @@
       "price" : 3,
       "title" : "Saffron"
     },
-    "-Krvt8G_naLT8Pg_Fob6" : {
+    
+ {
       "category" : "seasonings",
       "imageUrl" : "http://maxpixel.freegreatpicture.com/static/photo/1x/Seasoning-Powder-Curry-Spice-Ingredient-Turmeric-2344157.jpg",
       "price" : 0.75,
