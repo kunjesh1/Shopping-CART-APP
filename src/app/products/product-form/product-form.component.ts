@@ -53,12 +53,23 @@ export class ProductFormComponent implements OnInit {
 
   onSave(product){
     console.log(product);
+    if(this.productId)
+    {
+    console.log("patching");
+    this.productService.updateProduct(this.productId,product).subscribe(
+      result=>console.log("Added successfully"+result),
+      err=>console.log(err));
+    }
+    else
+    {
     this.productService.saveProducts(product).subscribe((result)=>{
       console.log("Added successfully\n"+result);
     },
     err=>{
       console.log("Something went wrong"+err);
     });
+  }
+
   }
 
   getProducts()

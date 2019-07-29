@@ -7,6 +7,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { HeaderComponent } from '../header/header.component';
 import { ProductsComponent } from '../products/products.component';
 import { ProductFormComponent } from '../products/product-form/product-form.component';
+import { ShoppingBlockComponent } from '../shopping-block/shopping-block.component';
 
 
 const appRoutes: Routes = [
@@ -15,8 +16,11 @@ const appRoutes: Routes = [
   {
       path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]
   },
-  {path:'main',component:HeaderComponent,canActivate:[AuthGuard]},
 
+  {
+    path:'main',component:ShoppingBlockComponent,canActivate:[AuthGuard]
+  }
+,
   {
     path:'products' ,component:ProductsComponent
 
@@ -29,7 +33,9 @@ const appRoutes: Routes = [
     path:'products/:id', component:ProductFormComponent
   },
   // otherwise redirect to home
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/main' },
+  {path:'',component:HeaderComponent}
+  
 ];
 
 @NgModule({

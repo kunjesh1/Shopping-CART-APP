@@ -25,5 +25,16 @@ export class ProductService{
 
   }
 
+  public deleteProduct(id):Observable<Product[]>{
+
+    return this.http.delete<Product[]>(environment.apiBaseUrl+'/deleteProduct/'+id);
+  }
+
+
+  public updateProduct(id,obj):Observable<Product[]>{
+
+    return this.http.patch<Product[]>(environment.apiBaseUrl+'/putProduct/'+id,obj);
+  }
+
     
 }

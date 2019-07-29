@@ -2,9 +2,10 @@
 
 
 <p>
-<a routerLink="/products/new" class="btn btn-primary">New Product</a>
+<a routerLink="/products/new" class="btn btn-primary pull-right">New Product</a>
 </p>
  <p>
+    
     <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
         <mat-icon>close</mat-icon>
@@ -27,14 +28,8 @@
                     <mat-header-cell *matHeaderCellDef #idValue></mat-header-cell>
                     
                    <mat-cell *matCellDef="let row">
-                     
-                        <!-- <button mat-icon-button (click)="getValueId(row._id)"><mat-icon>launch</mat-icon></button> -->
-                        <button mat-icon-button [routerLink]="['/products', row._id]"><mat-icon>launch</mat-icon></button>
-
-                    
-                   
-
-                        <button mat-icon-button color="warn" ><mat-icon>delete_outline</mat-icon></button>
+                           <button mat-icon-button [routerLink]="['/products', row._id]"><mat-icon>launch</mat-icon></button>
+                           <button mat-icon-button color="warn" (click)="onDelete(row._id)" ><mat-icon>delete_outline</mat-icon></button>
                        
                     </mat-cell>
                 </ng-container>

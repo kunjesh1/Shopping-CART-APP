@@ -18,6 +18,7 @@ import { ProductFormComponent } from './products/product-form/product-form.compo
 import { ProductsComponent } from './products/products.component'; 
 import {CategoryService} from './shared/category.service';
 import { ProductService } from './shared/product.service';
+import { ShoppingBlockComponent } from './shopping-block/shopping-block.component';
 
 
 
@@ -31,7 +32,8 @@ import { ProductService } from './shared/product.service';
     HeaderComponent,
     DropdownDirective,
     ProductFormComponent,
-    ProductsComponent
+    ProductsComponent,
+    ShoppingBlockComponent
   ],
   imports: [
     BrowserModule,
