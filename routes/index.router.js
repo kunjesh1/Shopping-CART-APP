@@ -7,11 +7,13 @@ const ctrlcategories=require('../controllers/categories.controller');
 const ctrlProducts=require('../controllers/product.controller');
 
 router.post('/register',ctrlUser.register);
-router.post('/authenticate',ctrlUser.authenticate)*
+router.post('/authenticate',ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.get('/categories',ctrlcategories.categories);
 router.post('/products',ctrlProducts.products);
 router.get('/fetch/products',ctrlProducts.fetch);
 router.get('/getParticular/:id',ctrlProducts.getParticular);
+router.delete('/deleteProduct/:id',ctrlProducts.deleteProduct);
+router.patch('/putProduct/:id',ctrlProducts.putProduct);
 
 module.exports=router;

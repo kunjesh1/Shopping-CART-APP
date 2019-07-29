@@ -47,12 +47,31 @@ module.exports.getParticular=(req,res,next)=>{
 
 module.exports.deleteProduct=(req,res,next)=>{
     var id=req.params.id;
-    Product.deleteOne(id).exec()
+    
+    Product.deleteOne({_id:id}).exec()
            .then(docs=>
             res.status(200).json(docs)
            ).catch(
                err=>res.status(300).json(err)
            );
 
-
 }
+
+module.exports.putProduct=(req,res,next)=>{
+
+    var id=req.params.id;
+
+
+    Product.updateOne({_id:id}, {
+        $set:req.body
+    }, { new: true })
+        .exec()
+        .then(result => {
+
+            res.status(200).json(result);
+
+
+        }
+        ).catch(err => console.log(err));
+
+    }
