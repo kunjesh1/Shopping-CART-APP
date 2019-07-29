@@ -13,8 +13,9 @@
           <li class="dropdown" appDropdown>
             <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage Account</a>
             <ul class="dropdown-menu">
-              <li><a style="cursor: pointer;">My Account</a></li>
-              <li><a style="cursor: pointer;">Fetch Data</a></li>
+              <li><a routerLink="/userprofile" style="cursor: pointer;">My Account</a></li>
+              <li><a  routerLink="/products" style="cursor: pointer;">Manage Products</a></li>
+
               <li><a style="cursor:pointer;" (click)="onLogout()">Log Out</a></li>
             </ul>
           </li>

@@ -5,6 +5,8 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { HeaderComponent } from '../header/header.component';
+import { ProductsComponent } from '../products/products.component';
+import { ProductFormComponent } from '../products/product-form/product-form.component';
 
 
 const appRoutes: Routes = [
@@ -15,6 +17,17 @@ const appRoutes: Routes = [
   },
   {path:'main',component:HeaderComponent,canActivate:[AuthGuard]},
 
+  {
+    path:'products' ,component:ProductsComponent
+
+  },
+  {
+    path:'products/new', component:ProductFormComponent
+  },
+
+  {
+    path:'products/:id', component:ProductFormComponent
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: '/login' }
 ];

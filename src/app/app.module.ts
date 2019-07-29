@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {  NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CustomFormsModule } from 'ng2-validation';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { UserService } from './shared/user.service';
 import {AppRoutingModule,routingComponents } from './app-routing/app-routing.module';
@@ -12,8 +12,16 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './dropdown.directive';
-import {MatFormFieldModule, MatSelectModule, MatCardModule, MatInputModule, MatButtonModule} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatFormFieldModule, MatSelectModule, MatCardModule, MatInputModule, MatButtonModule,MatTableModule, MatIconModule,MatSortModule, MatPaginatorModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductFormComponent } from './products/product-form/product-form.component';
+import { ProductsComponent } from './products/products.component'; 
+import {CategoryService} from './shared/category.service';
+import { ProductService } from './shared/product.service';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,11 +29,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserComponent,
     routingComponents,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    ProductFormComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    CustomFormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -34,7 +45,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatIconModule,
+    MatSortModule,
+    MatPaginatorModule
+
 ],
   providers: [UserService,
     AuthGuard,
@@ -42,7 +58,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,
       multi:true
-    }
+    },
+    CategoryService,
+    ProductService
+     
   ],
   bootstrap: [AppComponent]
 })
@@ -55,7 +74,10 @@ export class AppModule { }
     MatCardModule,
     MatInputModule,
     BrowserAnimationsModule,
-  MatButtonModule]
+  MatButtonModule,
+MatIconModule,
+MatSortModule,
+MatPaginatorModule]
 
 
 })

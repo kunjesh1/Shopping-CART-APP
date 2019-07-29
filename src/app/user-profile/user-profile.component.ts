@@ -5,7 +5,6 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
   
@@ -21,6 +20,7 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
+        console.log(this.userDetails);
       },
       err => { 
         console.log(err);
