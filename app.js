@@ -10,6 +10,7 @@ const cors=require('cors');
 const rtsIndex=require('./routes/index.router');
 const mongoose=require('mongoose');
 const passport=require('passport');
+const morgan=require('morgan');
 
 
 
@@ -19,9 +20,8 @@ mongoose.connect(process.env.MONGODB_URI,
 });
 
 
-
 //middleware
-
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
