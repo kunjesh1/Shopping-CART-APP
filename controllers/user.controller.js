@@ -21,7 +21,14 @@ module.exports.register=(req,res,next)=>{
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({
+      if(err.name=='ValidationError')
+      {
+        res.status(501).json({
+          error: err
+        });
+       
+      }
+      res.status(501).json({
         error: err
       });
     });
