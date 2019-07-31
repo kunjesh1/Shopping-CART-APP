@@ -2,9 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from '../../shared/category.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../shared/product.service';
-import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import { Product } from 'src/app/model/product.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-form',
@@ -22,6 +20,7 @@ export class ProductFormComponent implements OnInit {
               private router:Router,
               private productService:ProductService,
               private route: ActivatedRoute,
+              private toastr:ToastrService
               ) {
                 console.log(this.route);
                 console.log(this.route.snapshot.params.id);
@@ -52,13 +51,16 @@ export class ProductFormComponent implements OnInit {
   }
 
   onSave(product){
-    console.log(product);
+
+ 
+ 
     if(this.productId)
     {
     console.log("patching");
     this.productService.updateProduct(this.productId,product).subscribe(
-      result=>console.log("Added successfully"+result),
-      err=>console.log(err));
+      result=>console.log("Updated successfully"+result),
+      err=>console.log(err),
+      ()=>{this.toastr.success("Updated successfully");});
     }
     else
     {
@@ -67,6 +69,9 @@ export class ProductFormComponent implements OnInit {
     },
     err=>{
       console.log("Something went wrong"+err);
+      this.toastr.error("Someting Went Wrong");
+    },
+      ()=>{this.toastr.success("Added successfully");
     });
   }
 

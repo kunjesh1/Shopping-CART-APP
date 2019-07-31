@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
-    private userService:UserService) { }
+    private userService:UserService,
+    private toastr:ToastrService) { }
 
   ngOnInit() {
 
@@ -47,14 +49,18 @@ export class SignUpComponent implements OnInit {
         this.loading = true;
         this.userService.postUser(this.registerForm.value)
             .subscribe(
-                data => {
-                  console.log(data);
-                 
-                },
+                data => {},
                 error => {
                     console.log(error);
                     this.loading = false;
-                });
+                    this.toastr.error("Something Went Wrong");
+                },
+                ()=>{
+                 
+                  this.toastr.success("User Successfully Created");
+                 this.router.navigateByUrl('/login');});
+             
+                
     }
 
 }

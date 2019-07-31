@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './dropdown.directive';
 import {MatFormFieldModule, MatSelectModule, MatCardModule, MatInputModule, MatButtonModule,MatTableModule, MatIconModule,MatSortModule, MatPaginatorModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 import { ProductFormComponent } from './products/product-form/product-form.component';
 import { ProductsComponent } from './products/products.component'; 
 import {CategoryService} from './shared/category.service';
@@ -51,7 +52,13 @@ import { ShoppingBlockComponent } from './shopping-block/shopping-block.componen
     MatTableModule,
     MatIconModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ToastrModule.forRoot({
+      timeOut:1500,
+      positionClass:'toast-top-center',
+      preventDuplicates:false
+
+    }),
 
 ],
   providers: [UserService,
