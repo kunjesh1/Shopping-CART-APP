@@ -33,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.6.5",
     "morgan": "^1.9.1",
+    "multer": "^1.4.2",
     "ng-angular8-datatable": "^0.9.11",
     "ng2-validation": "^4.2.0",
     "nodemon": "^1.19.1",

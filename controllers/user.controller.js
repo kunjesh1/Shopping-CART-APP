@@ -2,6 +2,8 @@ const _ = require('lodash');
 const User=require('../models/user.model');
 const passport=require('passport');
 
+//########### USER API calls################################
+
 module.exports.register=(req,res,next)=>{
     var user=new User({
 
@@ -64,6 +66,17 @@ module.exports.userProfile = (req, res, next) =>{
 }
 
 
+
+
+module.exports.updateProfile=(req,res,next)=>{
+
+  console.log("kk");
+  console.log(req.file);
+res.status(200).send(req.file);
+
+
+
+}
 
 
 
