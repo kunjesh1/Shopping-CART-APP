@@ -10,10 +10,10 @@
             <!--left col-->
 
             <div class="text-center">
-                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                <img [src]="url" class="avatar img-circle img-thumbnail"
                     alt="avatar">
                 <h6>Upload a different photo...</h6>
-                <input type="file" class="text-center center-block file-upload">
+                <input type="file" class="text-center center-block file-upload" (change)="onFileUpload($event.target.files[0])">
             </div>
         </div>
         <!--/col-3-->

@@ -20,6 +20,7 @@ import { ProductsComponent } from './products/products.component';
 import {CategoryService} from './shared/category.service';
 import { ProductService } from './shared/product.service';
 import { ShoppingBlockComponent } from './shopping-block/shopping-block.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -69,7 +70,8 @@ import { ShoppingBlockComponent } from './shopping-block/shopping-block.componen
       multi:true
     },
     CategoryService,
-    ProductService
+    ProductService,
+    UserProfileComponent
      
   ],
   bootstrap: [AppComponent]
