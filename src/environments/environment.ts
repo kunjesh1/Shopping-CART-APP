@@ -4,7 +4,16 @@
 
 export const environment = {
   "apiBaseUrl":"http://localhost:3000/api",
-  production: false
+  production: false,
+  firebaseConfig :{
+    apiKey: "AIzaSyCIlT0vP4Yjnh6_IyY8GPIU5w7ZqdT4dRY",
+    authDomain: "shopping-cart-app-1341b.firebaseapp.com",
+    databaseURL: "https://shopping-cart-app-1341b.firebaseio.com",
+    projectId: "shopping-cart-app-1341b",
+    storageBucket: "shopping-cart-app-1341b.appspot.com",
+    messagingSenderId: "878448038870",
+    appId: "1:878448038870:web:026cbf106caf2008"
+  }
 };
 
 /*

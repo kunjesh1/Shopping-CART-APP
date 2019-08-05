@@ -21,6 +21,12 @@ import {CategoryService} from './shared/category.service';
 import { ProductService } from './shared/product.service';
 import { ShoppingBlockComponent } from './shopping-block/shopping-block.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {AngularFireModule} from "@angular/fire";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {environment} from "src/environments/environment";
+import { ShoppingBlockFilterComponent } from './shopping-block/shopping-block-filter/shopping-block-filter.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 
 
 
@@ -35,7 +41,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     DropdownDirective,
     ProductFormComponent,
     ProductsComponent,
-    ShoppingBlockComponent
+    ShoppingBlockComponent,
+    ShoppingBlockFilterComponent,
+    ShoppingCardComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +68,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       preventDuplicates:false
 
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
+
 
 ],
   providers: [UserService,

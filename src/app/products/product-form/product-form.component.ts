@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.css']
+
 })
 export class ProductFormComponent implements OnInit {
    
@@ -53,12 +53,15 @@ export class ProductFormComponent implements OnInit {
   onSave(product){
 
  
- 
+     console.log(product);
     if(this.productId)
     {
     console.log("patching");
     this.productService.updateProduct(this.productId,product).subscribe(
-      result=>console.log("Updated successfully"+result),
+      result=>{console.log("Updated successfully");
+      console.log(result);
+    },
+
       err=>console.log(err),
       ()=>{this.toastr.success("Updated successfully");});
     }

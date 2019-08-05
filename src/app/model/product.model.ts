@@ -4,5 +4,6 @@ export interface Product{
     price:number,
     category:string,
     phone:string;
+    imageUrl:string;
 
 }

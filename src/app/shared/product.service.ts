@@ -32,7 +32,8 @@ export class ProductService{
 
 
   public updateProduct(id,obj):Observable<Product[]>{
-
+  
+    console.log(obj);
     return this.http.patch<Product[]>(environment.apiBaseUrl+'/putProduct/'+id,obj);
   }
 

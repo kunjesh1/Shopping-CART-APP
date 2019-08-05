@@ -10,10 +10,10 @@
             <!--left col-->
 
             <div class="text-center">
-                <img [src]="url" class="avatar img-circle img-thumbnail"
-                    alt="avatar">
+                <img [src]="userDetails.imageURL?userDetails.imageURL:url" class="avatar img-circle img-thumbnail" alt="avatar">
                 <h6>Upload a different photo...</h6>
-                <input type="file" class="text-center center-block file-upload" (change)="onFileUpload($event.target.files[0])">
+                <input type="file" class="text-center center-block file-upload"
+                    (change)="onFileUpload($event.target.files[0])" (change)="showPreview($event)">
             </div>
         </div>
         <!--/col-3-->
@@ -25,6 +25,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
+                    <form #f="ngForm" (ngSubmit)="onSave(f.value)">
 
                     <div class="pull-right">
                         <button class="btn btn-danger" (click)="onEdit()" mat-button>Edit</button>
@@ -44,18 +45,20 @@
                                         <h5>{{userDetails.fullName}}</h5>
                                     </div>
                                     <ng-template #elseBlock>
+
                                         
-                                            <div class="form-group">
-                                                <input type="text"  class="form-control" placeholder="{{userDetails.fullName}}">
-                                            </div>
-                                            
+                                            <input #fullName="ngModel" [(ngModel)]="userDetails.fullName" 
+                                            name="fullName" id="fullName" type="text" class="form-control" >
+                                 
+
 
                                     </ng-template>
 
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item text-left">
+
+                        <li class="list-group-item text-left" *ngIf=[userDetails]>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>
@@ -64,16 +67,24 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div *ngIf="disabled;else elseBlock">
-                                        <h5>{{userDetails.email}}</h5>
+                                        <h5>{{userDetails.email+disabled}}</h5>
                                     </div>
+                                    
+
                                     <ng-template #elseBlock>
-                                            <div class="form-group">
-                                                    <input type="text"  class="form-control" placeholder="{{userDetails.email}}">
-                                                </div>
+
+                                        
+                                            <input #email="ngModel" [(ngModel)]="userDetails.email" 
+                                            name="email" id="Email" type="text" class="form-control" >
+                                 
+
+
                                     </ng-template>
+
                                 </div>
                             </div>
                         </li>
+
                         <li class="list-group-item text-left">
                             <div class="row">
                                 <div class="col-md-6">
@@ -84,11 +95,13 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <div *ngIf="disabled;else elseBlock">
+                                            <div>
                                                 <h5>***********</h5>
                                             </div>
-                                            <ng-template #elseBlock>
-                                                <h5><input type="text"></h5>
+                                            <ng-template >
+                                                <div class="form-group">
+                                                <input type="text">
+                                                </div>
                                             </ng-template>
                                         </div>
 
@@ -103,7 +116,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item text-left">
+                        <li class="list-group-item text-left" *ngIf=[userDetails]>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>
@@ -111,16 +124,19 @@
                                     </label>
                                 </div>
                                 <div class="col-md-6">
-                                    <div *ngIf="disabled else elseblock">
-                                    <h5>4394</h5>
-                                 </div>
+                                    <div *ngIf="disabled else elseBlock">
+                                        <h5>{{userDetails.mobile}}</h5>
+                                    </div>
 
                                     <ng-template #elseBlock>
-                                        
+
+                                     
                                             <div class="form-group">
-                                                <input type="text"  class="form-control" placeholder="{{userDetails.mobile}}">
+                                                <input #mobile="ngModel" [(ngModel)]="userDetails.mobile" 
+                                                name="mobile" id="mobile" type="text" class="form-control">
                                             </div>
-                                            
+                                   
+
 
                                     </ng-template>
 
@@ -135,5 +151,6 @@
                         <button class="btn btn-lg" type="reset" mat-button><i class="glyphicon glyphicon-repeat"></i>
                             Reset</button>
                     </div>
+                    </form>
                 </div>
             </div>

@@ -1,8 +1,9 @@
-import {User} from './user.model';
+import {User} from '../model/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../src/environments/environment';
+
 
 @Injectable()
 export class UserService{
@@ -10,11 +11,11 @@ export class UserService{
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
     constructor(private http:HttpClient) { }
     
-    selectedUser:User={
-        fullName:'',
-        email:'',
-        password:''
-    };
+    // selectedUser:User={
+    //     fullName:'',
+    //     email:'',
+    //     password:''
+    // };
 
 getStatus(data){
 
@@ -63,8 +64,12 @@ login(authCredentials) {
       return false;
   }
 
-  getUserProfile() {
-    return this.http.get(environment.apiBaseUrl + '/userProfile');
+  getUserProfile():Observable<User[]> {
+    return this.http.get<User[]>(environment.apiBaseUrl + '/userProfile');
+  }
+
+  updateProfile(id,data):Observable<User[]>{
+    return this.http.patch<User[]>(environment.apiBaseUrl+"/updateProfile/"+id,data);
   }
 
 
