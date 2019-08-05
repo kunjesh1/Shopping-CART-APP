@@ -22,6 +22,7 @@ router.delete('/deleteProduct/:id', ctrlProducts.deleteProduct);
 router.patch('/putProduct/:id', ctrlProducts.putProduct);
 router.patch('/updateProfile/:id', ctrlUser.updateProfile);
 router.post('/createCart',ctrlCart.create);
+router.post('/verifyPassword/:id',ctrlUser.verifyCurrentPassword);
 
 
 module.exports = router;
