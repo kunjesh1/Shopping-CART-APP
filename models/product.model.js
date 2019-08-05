@@ -5,7 +5,7 @@ const ProductSchema=mongoose.Schema({
         required:'Title cannot be empty'},
         price:{type:Number, required:'Price cannot be empty'},
         category:{type:String, required:'Price cannot be empty'},
-        imageURL:{type:String}
+        imageUrl:{type:String}
 
 });
 

@@ -19,7 +19,7 @@ module.exports.products=(req,res,next)=>{
 module.exports.fetch=(req,res,next)=>{
 
     Product.find()
-           .select("_id title price category imageURL")
+           .select("_id title price category imageUrl")
             .exec()
             
             .then(docs=>{

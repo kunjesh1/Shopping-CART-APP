@@ -18,6 +18,9 @@ const userSchema=mongoose.Schema({
         minlength:[4,'Password must be atleast 4 characters'],
         
     },
+
+    mobile:{type:Number},
+    imageURL:{type:String},
     saltSecret:String
 });
 
@@ -48,6 +51,8 @@ userSchema.methods.generateJwt = function () {
             expiresIn: process.env.JWT_EXP
         });
   }
+
+  
 
 
 
