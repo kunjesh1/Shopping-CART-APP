@@ -8,6 +8,7 @@ import { HeaderComponent } from '../header/header.component';
 import { ProductsComponent } from '../products/products.component';
 import { ProductFormComponent } from '../products/product-form/product-form.component';
 import { ShoppingBlockComponent } from '../shopping-block/shopping-block.component';
+import { ChangePasswordComponent } from '../user-profile/change-password/change-password.component';
 
 
 const appRoutes: Routes = [
@@ -32,9 +33,11 @@ const appRoutes: Routes = [
   {
     path:'products/:id', component:ProductFormComponent
   },
+  {path:'changePassword',component:ChangePasswordComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '/main' },
-  {path:'',component:HeaderComponent}
+  {path:'',component:HeaderComponent},
+
   
 ];
 

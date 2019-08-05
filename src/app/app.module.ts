@@ -27,6 +27,8 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {environment} from "src/environments/environment";
 import { ShoppingBlockFilterComponent } from './shopping-block/shopping-block-filter/shopping-block-filter.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -43,7 +45,8 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
     ProductsComponent,
     ShoppingBlockComponent,
     ShoppingBlockFilterComponent,
-    ShoppingCardComponent
+    ShoppingCardComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatDialogModule
 
 
 ],
@@ -86,7 +90,8 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
     UserProfileComponent
      
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ChangePasswordComponent]
 })
 export class AppModule { }
 

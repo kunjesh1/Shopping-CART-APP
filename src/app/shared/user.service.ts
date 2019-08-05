@@ -72,6 +72,11 @@ login(authCredentials) {
     return this.http.patch<User[]>(environment.apiBaseUrl+"/updateProfile/"+id,data);
   }
 
+  verify(id,data){
+     console.log(data);
+    return this.http.post(environment.apiBaseUrl+'/verifyPassword/'+id,data);
+  }
+
 
   
 }

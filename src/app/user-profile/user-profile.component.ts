@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { ToastrService} from 'ngx-toastr';
+import {MatDialog,MatDialogConfig} from '@angular/material/dialog';
+import { ChangePasswordComponent } from './change-password/change-password.component';
  
 @Component({
   selector: 'app-user-profile',
@@ -15,13 +17,15 @@ export class UserProfileComponent implements OnInit {
   url="http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
   disabled=true;
   userDetails;
-  kk="Kkfdj";
+  changePassword=false;
+
 
   constructor(private userService: UserService, 
               private router: Router,
               private http:HttpClient,
               private storage:AngularFireStorage,
-              private toastr:ToastrService) { }
+              private toastr:ToastrService,
+              private dialog:MatDialog) { }
 
             
 
@@ -69,11 +73,13 @@ export class UserProfileComponent implements OnInit {
           ()=>{
             this.toastr.success("Records Updated successfully");
             this.ngOnInit(); 
+            this.disabled=true;
           }
 
         );
 
      
+
   }
 
 
@@ -133,6 +139,18 @@ export class UserProfileComponent implements OnInit {
       });
  
 
+  }
+
+  onChangePassword()
+  {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=true; 
+    dialogConfig.autoFocus=true; //disable the property to click outside the box
+   this.dialog.open(ChangePasswordComponent,{
+     width:'500px',
+     data:{id:this.userDetails._id}
+
+   });
   }
 
 

@@ -25,11 +25,12 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
-                    <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+                  
 
                     <div class="pull-right">
                         <button class="btn btn-danger" (click)="onEdit()" mat-button>Edit</button>
                     </div>
+                    <form #f="ngForm" (ngSubmit)="onSave(f.value)">
                     <br><br>
                     <ul class="list-group">
                         <li class="list-group-item text-muted">Profile <i class="fa fa-dashboard fa-1x"></i></li>
@@ -67,7 +68,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div *ngIf="disabled;else elseBlock">
-                                        <h5>{{userDetails.email+disabled}}</h5>
+                                        <h5>{{userDetails.email}}</h5>
                                     </div>
                                     
 
@@ -98,16 +99,12 @@
                                             <div>
                                                 <h5>***********</h5>
                                             </div>
-                                            <ng-template >
-                                                <div class="form-group">
-                                                <input type="text">
-                                                </div>
-                                            </ng-template>
+                                         
                                         </div>
 
                                         <div class="col-md-7">
                                             <div class="pull-right">
-                                                <button class="btn btn-danger" mat-button>Change Password</button>
+                                                <button class="btn btn-danger" (click)="onChangePassword()" mat-button>Change Password</button>                                                                                                           
                                             </div>
                                         </div>
                                     </div>
@@ -152,5 +149,8 @@
                             Reset</button>
                     </div>
                     </form>
-                </div>
+                </div>               
             </div>
+
+
+            
